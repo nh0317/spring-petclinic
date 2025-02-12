@@ -22,7 +22,6 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - id: step1
-    - name : ssh connection
       uses: tiyee/action-ssh@v1.0.1
       with:
         # Command to execute on the remote server.
