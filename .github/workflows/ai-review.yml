@@ -20,9 +20,6 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-
-
-          
     steps:
     - id: step1
     - name : ssh connection
