@@ -6,9 +6,9 @@ name: Manual workflow
 # or API.
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "test-1" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "test-1" ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -37,5 +37,5 @@ jobs:
     steps:
       - env:
           OUTPUT1: ${{needs.ai-review.outputs.output1}}
-        run: echo "$OUTPUT1 $OUTPUT2"
+        run: echo "$OUTPUT1
   
