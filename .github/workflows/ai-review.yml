@@ -22,13 +22,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - id: step1
-      uses: appleboy/ssh-action@master
+      uses: favware/ssh-remote-action@v1
       with:
         host: ${{ secrets.HOST_PROD }}
         username: ${{ secrets.HOST_USERNAME }}
         password: ${{ secrets.HOST_PW }}
         port: 22
-        script: cd /home/nahyeon/CRITIC && python3 chatbot/custom_chatbot.py >> /home/nahyeon/log.txt && echo /home/nahyeon/log.txt>> "$GITHUB_OUTPUT"
+        command: cd /home/nahyeon/CRITIC && python3 chatbot/custom_chatbot.py >> /home/nahyeon/log.txt && echo /home/nahyeon/log.txt>> "$GITHUB_OUTPUT"
   
   comment:
     runs-on: ubuntu-latest
