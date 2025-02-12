@@ -20,16 +20,23 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
+
+
+          
     steps:
     - id: step1
-    - uses: appleboy/ssh-action@master
+    - name : ssh connection
+      uses: tiyee/action-ssh@v1.0.1
       with:
+        # Command to execute on the remote server.
+        command: cd /home/nahyeon/CRITIC && python3 chatbot/custom_chatbot.py >> "$GITHUB_OUTPUT"
+        # Hostname or IP address of the server.
         host: ${{ secrets.HOST_PROD }}
+        # Username for authentication.
         username: ${{ secrets.HOST_USERNAME }}
-        password: ${{ secrets.HOST_PW }}
+        # Port number of the server.
         port: 22
-        script_stop: true
-        script: cd /home/nahyeon/CRITIC && python3 chatbot/custom_chatbot.py >> "$GITHUB_OUTPUT"
+        privateKey: ${{ secrets.HOST_PW }}
   
   comment:
     runs-on: ubuntu-latest
